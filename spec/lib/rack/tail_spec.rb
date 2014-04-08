@@ -1,5 +1,6 @@
 require 'rack/tail'
 require 'rack/test'
+
 describe Rack::Tail do
 
   include Rack::Test::Methods
