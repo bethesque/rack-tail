@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rack/tail_file/version'
+require 'rack/tail/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rack-tail_file"
-  spec.version       = Rack::TailFile::VERSION
+  spec.name          = "rack-tail"
+  spec.version       = Rack::Tail::VERSION
   spec.authors       = ["Beth"]
   spec.email         = ["beth@bethesque.com"]
   spec.description   = %q{Like Rack::File, but it serves the last lines of a file}

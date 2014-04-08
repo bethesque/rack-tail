@@ -1,4 +1,4 @@
-require "rack/tail_file/version"
+require "rack/tail/version"
 
 require 'elif'
 require 'time'
@@ -14,7 +14,7 @@ module Rack
   # Handlers can detect if bodies are a Rack::File, and use mechanisms
   # like sendfile on the +path+.
 
-  class TailFile
+  class Tail
 
     SEPS = Regexp.union(*[::File::SEPARATOR, ::File::ALT_SEPARATOR].compact)
     ALLOWED_VERBS = %w[GET HEAD]

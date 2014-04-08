@@ -1,11 +1,11 @@
-require 'rack/tail_file'
+require 'rack/tail'
 require 'rack/test'
-describe Rack::TailFile do
+describe Rack::Tail do
 
   include Rack::Test::Methods
 
   def app
-    Rack::TailFile.new root
+    Rack::Tail.new root
   end
 
   let(:root) { './spec/fixtures' }
