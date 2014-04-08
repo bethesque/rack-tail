@@ -21,14 +21,16 @@ module Rack
 
     attr_accessor :root
     attr_accessor :path
+    attr_accessor :default_lines
     attr_accessor :cache_control
 
     alias :to_path :path
 
-    def initialize(root, headers={}, default_mime = 'text/plain')
+    def initialize(root, headers={}, default_mime = 'text/plain', default_lines = 50)
       @root = root
       @headers = headers
       @default_mime = default_mime
+      @default_lines = default_lines
     end
 
     def call(env)
@@ -103,7 +105,7 @@ module Rack
     end
 
     def requested_lines_size(env)
-      (env.fetch("QUERY_STRING")[/\d+/] || 50).to_i
+      (env.fetch("QUERY_STRING")[/\d+/] || default_lines).to_i
     end
 
     def tail_size_for line_count
@@ -126,7 +128,6 @@ module Rack
       #   via stat (e.g. /proc files often don't), otherwise we have to
       #   figure it out by reading the whole file into memory.
       size = F.size?(@path) || Utils.bytesize(F.read(@path))
-
       #TODO handle invalid lines
       tail_size = tail_size_for requested_lines_size(env)
 
