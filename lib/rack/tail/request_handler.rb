@@ -44,7 +44,7 @@ module Rack
 
       def available?
         begin
-          F.file?(@path) && F.readable?(@path)
+          F.file?(path) && F.readable?(path)
         rescue SystemCallError
           false
         end
@@ -63,11 +63,11 @@ module Rack
       end
 
       def serving
-        last_modified = F.mtime(@path).httpdate
+        last_modified = F.mtime(path).httpdate
         return [304, {}, []] if env['HTTP_IF_MODIFIED_SINCE'] == last_modified
 
         headers = { "Last-Modified" => last_modified }
-        mime = Mime.mime_type(F.extname(@path), @default_mime)
+        mime = Mime.mime_type(F.extname(path), @default_mime)
         headers["Content-Type"] = mime if mime
 
         # Set custom headers
@@ -83,7 +83,7 @@ module Rack
       end
 
       def tail_size_for line_count
-        elif = Elif.new(@path)
+        elif = Elif.new(path)
         tail_size = 0
         line_count.times do
           begin
@@ -101,7 +101,7 @@ module Rack
         #   We check via File::size? whether this file provides size info
         #   via stat (e.g. /proc files often don't), otherwise we have to
         #   figure it out by reading the whole file into memory.
-        size = F.size?(@path) || Utils.bytesize(F.read(@path))
+        size = F.size?(path) || Utils.bytesize(F.read(path))
 
         # TODO handle invalid lines eg. lines=-3
         tail_size = tail_size_for requested_lines_size
