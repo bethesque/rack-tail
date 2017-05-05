@@ -19,8 +19,8 @@ Or install it yourself as:
 ## Usage
 
 Rack::Tail serves files below the +root+ directory given, according to the path info of the Rack request.
-e.g. when Rack::File.new("/etc") is used, you can access 'passwd' file
-as http://localhost:9292/passwd
+e.g. when Rack::Tail.new("/etc") is used, you can access the last `n` lines of the 'passwd' file
+as http://localhost:9292/passwd?n=3
 
 Great idea...
 
