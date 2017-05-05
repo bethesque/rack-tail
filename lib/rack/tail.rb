@@ -10,6 +10,8 @@ module Rack
   # e.g. when Rack::File.new("/etc") is used, you can access 'passwd' file
   # as http://localhost:9292/passwd
 
+  # Any headers in the headers hash will be added to the response.
+
   module Tail
 
     def self.new(root, headers={}, default_mime = 'text/plain', default_lines = 50)

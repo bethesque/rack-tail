@@ -1,0 +1,8 @@
+I, [2017-05-04T09:58:34.206393 #61889]  INFO -- : A thing happened
+I, [2017-05-04T09:58:34.206418 #61889]  INFO -- : Another thing happened
+I, [2017-05-04T09:58:34.426984 #61889]  INFO -- : Mounting PactBroker::API
+E, [2017-05-04T09:58:34.493104 #61889]  INFO -- : Some error, argh!!!
+I, [2017-05-04T09:58:34.494962 #61889]  INFO -- : A really boring thing happened
+I, [2017-05-04T09:58:34.496153 #61889]  INFO -- : Foo
+I, [2017-05-04T09:58:34.575249 #61889]  INFO -- : Bar
+I, [2017-05-04T09:58:34.576579 #61889]  INFO -- : Wiffle
